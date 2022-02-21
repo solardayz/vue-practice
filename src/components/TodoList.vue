@@ -2,6 +2,7 @@
   <div>
     <ul>
       <li v-for="{todoItem, index} in todoItems" v-bind:key="todoItem" class="shadow">
+        <i v-on:click="toggleComplete"></i>
         {{ todoItem }}
         <button class="removeBtn" v-on:click="removeToDo(todoItem, index)">remove</button>
       </li>
@@ -23,6 +24,9 @@ export default {
       localStorage.removeItem(todoItem);
       this.todoItems.splice(index, 1);
     },
+    toggleComplete: function () {
+
+    }
   },
   created: function () {
     if(localStorage.length > 0){
